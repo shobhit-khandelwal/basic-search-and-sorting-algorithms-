@@ -1,0 +1,67 @@
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+int c[3][3],a[3][3],n,i,j,k;
+clrscr();
+cout<<"\  Enter the number of nodes : ";
+cin>>n;
+cout<<"\n Enter the cost adjacency matrix :";
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+{
+ if(i==j)
+ {
+   c[i][j]=0;
+ }
+ else
+ {
+ cout<<"c["<<i+1<<"]["<<j+1<<"] : ";
+ cin>>c[i][j];
+
+ }
+ cout<<endl;
+}
+}
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+{
+cout<<c[i][j];cout<<" ";
+}
+cout<<endl;
+}
+
+
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+{
+ a[i][j]=c[i][j];
+}
+}
+for(k=0;k<n;k++)
+{
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+{
+if(a[i][j]>(a[i][k]+a[k][j]))
+{
+a[i][j]=a[i][k]+a[k][j];
+}
+}
+}
+}
+
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+{
+cout<<a[i][j]<<" " ;
+}                  cout<<endl;
+}
+
+getch();
+}
