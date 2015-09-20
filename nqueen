@@ -1,0 +1,54 @@
+//n queen problem
+#include<iostream.h>
+#include<conio.h>
+#include<math.h>
+int n;  //problem
+int no;
+int x[30];
+void queen(int);  int place(int,int);
+void display();
+void main()
+{
+	x[0]=0;
+	int a;
+	cout<<"Enter n for the n queen problem:";
+	cin>>n;
+	queen(1);
+
+}
+
+
+void queen(int k)
+{
+	for(int i=1;i<=n;i++)
+	{
+		if(place(k,i))
+		{
+			x[k]=i;
+			if(k==n)
+			display();
+			else
+			queen(k+1);
+		}
+	}
+}
+
+int place(k,i)
+{
+	for(int j=1;j<=k-1;j++)
+	{
+			if( x[j]==i || abs(j-k)==abs(i-x[j]) )
+			{return (0);}
+	}
+	return(1);
+}
+void display()
+{
+	no++;
+	cout<<"\nsolution set "<<no<<"\n";
+	for(int l=1;l<=n;l++)
+	cout<<x[l]<<"\t";
+
+}
+
+
